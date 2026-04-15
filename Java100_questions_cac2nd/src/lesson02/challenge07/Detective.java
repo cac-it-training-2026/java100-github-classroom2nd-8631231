@@ -14,8 +14,7 @@
  * ここに入力＞○○
  *
  * <ユーザーの入力値が185を超えている場合の実行例>
- * 探偵：
- * その身長だと犯行が可能ですね。
+ * 
  *
  * <ユーザーの入力値が185を超えていない場合の実行例>
  * 探偵：
@@ -25,7 +24,9 @@
 
 package lesson02.challenge07;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Detective {
 
@@ -35,10 +36,18 @@ public class Detective {
 		System.out.println("ではここで犯人の身体的な特徴についておさらいしてみましょう。");
 		System.out.println("あなたが思う犯人の身長を適当に入力してみてください。\n");
 		System.out.print("ここに入力＞");
-
 		//ここに入力処理を入れる
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		String heightstr = reader.readLine();
 
+		int height = Integer.parseInt(heightstr);
 		//ここにif～else文を入れる
+
+		if (height > 185) {
+			System.out.println("探偵：\nその身長だと犯行が可能ですね。");
+		} else {
+			System.out.println("その身長だと犯行は無理ですね");
+		}
 
 	}
 
