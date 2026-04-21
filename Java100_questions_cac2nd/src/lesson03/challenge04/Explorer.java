@@ -52,23 +52,33 @@
 
 package lesson03.challenge04;
 
-import java.io.IOException;
-
 public class Explorer {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 
 		System.out.println("隊長：");
 		System.out.println("吊り橋発見！\n");
 
 		int fullLength = 300;
-		int member = 0;
+		int member = 1;
+		int houkoku = (fullLength / 50);
 
+		do {
 
-		//ここにwhile文を利用した処理を記述
+			System.out.println("\n隊長\n" + member + "人目が渡り始めたよ。");
 
+			for (int i = 0; i < houkoku; i++) {
+				fullLength -= 50;
+				//				member += 1;
+				System.out.println("隊長\nまだ渡ってるよ");
+			}
+			member++;
+		} while (member <= 6);
 
-		System.out.println("全員渡り終わったよ！");
+		System.out.println("\n全員渡り終わったよ！");
+
+		//		System.out.println("");
 
 	}
+
 }

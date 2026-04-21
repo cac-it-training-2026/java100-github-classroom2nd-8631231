@@ -79,27 +79,40 @@ import java.io.InputStreamReader;
 
 public class Explorer {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("隊長：");
-        System.out.println("トラ発見！\n");
+		System.out.println("隊長：");
+		System.out.println("トラ発見！\n");
 
-        int deepSleepTime = (int) (Math.random() * 10 % 3) + 1;
-        int goTime = 0;
+		int deepSleepTime = (int) (Math.random() * 10 % 3) + 1;
+		int goTime = 0;
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+		//ここにfor文、if文を利用した処理を記述
+		for (int i = 1; i < 3; i++) {//時間経過
+			System.out.println("隊長：\n" + i + "時間経過。\n");
+			if (i != 3) {//iが３ではない間という条件
+				System.out.println("通り抜けますか？(はい...1:いいえ...その他キー)");
+				String yesno = br.readLine();
+				int timing = Integer.parseInt(yesno);
+				if (timing == 1) {
+					goTime = i;
+					break;
+				} //ここで一度切る、1以外では繰り返すように
+			} else {
+				goTime = i;
+				System.out.println("もう後がないんで通り抜けますよ。");
+			}
+		}
 
-        //ここにfor文、if文を利用した処理を記述
+		if (deepSleepTime == goTime) {//1を押した時の値が代入された変数とランダムの値が＝であるかないかで判断
+			System.out.println("\n隊長：");
+			System.out.println("成功！トラはぐっすり寝ています。");
+		} else {
+			System.out.println("\n隊長：");
+			System.out.println("しまったトラがまだ起きてた！");
+		}
 
-
-        if (deepSleepTime == goTime) {
-            System.out.println("\n隊長：");
-            System.out.println("成功！トラはぐっすり寝ています。");
-        } else {
-            System.out.println("\n隊長：");
-            System.out.println("しまったトラがまだ起きてた！");
-        }
-
-    }
+	}
 }
