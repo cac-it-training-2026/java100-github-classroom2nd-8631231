@@ -25,15 +25,21 @@ public class Detective {
 
 		//ここに変数を記述する。
 
-
 		System.out.println("探偵：");
 		System.out.println("では早速出かけよう\n");
+
 		System.out.println("助手：");
 		System.out.println("ちょっと待ってください！ガソリンが...\n");
 
+		int gasolin = 20;
+
+		if (gasolin >= 10) {
+
+			System.out.println("あ、やっぱり足りてました。");
+		}
+
 		//ここにif文を記述する。
 		//変数gasolinが10以上であるときにガソリンが足りているものとします。
-
 
 	}
 

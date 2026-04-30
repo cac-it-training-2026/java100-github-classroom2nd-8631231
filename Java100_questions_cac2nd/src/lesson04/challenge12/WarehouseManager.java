@@ -99,10 +99,20 @@ public class WarehouseManager {
 
 		System.out.println("\n\nでした。直してきます...\n");
 
-
 		//ここに適切な値の挿入処理を記述する
+		int zero = 0;
+		int point = 0;
 
-
+		for (int i = 0; i < wonderfulArray.length; i++) {
+			if (wonderfulArray[i] == 0) {
+				zero = i;//配列のどこに０が存在したかを記録
+			} else {
+				point += wonderfulArray[i];//pointに配列の中にelseではじかれた０以外の数字を足していき代入
+			}
+		}
+		wonderfulArray[zero] = (15 - point);
+		// (15 - point)＝１から５の合計から今までに出た数字の合計を引くことで残った数字を把握できる。
+		//zeroに記録していたため０があった位置を出せる。そこに残った数字を代入
 		System.out.println("Yさん：");
 		System.out.println("直してきました。\n");
 
