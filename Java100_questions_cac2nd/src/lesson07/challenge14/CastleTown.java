@@ -17,26 +17,47 @@
 
 package lesson07.challenge14;
 
-
 //ここにIChiefTreasurerインターフェースを記述
+interface IChiefTreasurer {
 
+	void figure();
+}
 
 //ここにICelebrityインターフェースを記述
+interface ICelebrity {
 
+	void learn();
+}
 
 //ここにSamuraiクラスを記述
+class Samurai implements IChiefTreasurer, ICelebrity {
 
+	@Override
+	public void figure() {
+		System.out.println("藩の資産を計算するよ～。");
+	}
+
+	@Override
+	public void learn() {
+		System.out.println("茶道を嗜むよ～。");
+	}
+
+}
 
 //ここにRetainerクラスを記述
+class Retainer {
 
+}
 
 public class CastleTown {
 
-    public static void main(String[] args) {
-        System.out.println("藩士1：");
+	public static void main(String[] args) {
+		System.out.println("藩士1：");
 
+		//ここに適切な処理を記述;
+		Samurai samurai = new Samurai();
+		samurai.figure();
+		samurai.learn();
 
-        //ここに適切な処理を記述;
-
-    }
+	}
 }
