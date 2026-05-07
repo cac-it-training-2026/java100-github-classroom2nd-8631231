@@ -53,13 +53,54 @@ public class WarehouseManager {
 
 		int[] ABKosanArray1 = new int[5];
 		int[] ABKosanArray2 = new int[5];
-
+		//		int[] ABKosanArray3 = new int[5];
+		//		int[] ABKosanArray4 = new int[5];
 
 		//ここに重複チェックおよび値の代入処理を記述する①(1～5)
+		int atai = 0;
+		boolean loopFlag = false;
 
+		for (int i = 0; i < ABKosanArray1.length; i++) {
+
+			do {
+				loopFlag = false;
+				atai = (int) (Math.random() * 10) % 5 + 1;
+
+				for (int j = 0; j < ABKosanArray1.length; j++) {
+					if (ABKosanArray1[j] == atai) {
+						loopFlag = true;
+						break;
+						//レッスン６と同じ
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray1[i] = atai;
+		}
+		atai = 0;
+		loopFlag = false;
+
+		for (int i = 0; i < ABKosanArray2.length; i++) {
+
+			do {
+				loopFlag = false;
+				atai = (int) (Math.random() * 5) + 6;
+
+				for (int j = 0; j < ABKosanArray2.length; j++) {
+					if (ABKosanArray2[j] == atai) {
+						loopFlag = true;
+						break;
+
+					}
+				}
+
+			} while (loopFlag);
+
+			ABKosanArray2[i] = atai;
+		}
 
 		//ここに重複チェックおよび値の代入処理を記述する②(6～10)
-
 
 		System.out.println("E主任：");
 		System.out.println("AB興産から新たに預かった荷物と以前から預かっている荷物の");
@@ -88,11 +129,46 @@ public class WarehouseManager {
 		System.out.println("E主任：");
 		System.out.println("その二つの荷物を奇数群、偶数群で入れ替えてください。\n");
 
-
-
 		//ここに奇数群(ABKosanArray1)と偶数群(ABKosanArray2)に振り分ける処理を記述する。
+		//		for (int i = 0; i < 5; i++) {
+		//			if (ABKosanArray1[i] % 2 != 0) {
+		//
+		//				ABKosanArray3[i] = ABKosanArray1[i];
+		//
+		//			} else if (ABKosanArray1[i] % 2 != 0) {
+		//				ABKosanArray4[i] = ABKosanArray1[i];
+		//
+		//			} else if (ABKosanArray2[i] % 2 != 0) {
+		//				ABKosanArray3[i] = ABKosanArray2[i];
+		//
+		//			} else {
+		//				ABKosanArray4[i] = ABKosanArray2[i];
+		//			}
+		//	}
+		int even = 0;
+		int odd = 0;
+		int change = 0;
 
+		//振り分けというよりtempを使って、奇数と偶数を入れ替えている
+		do {
+			for (int i = even; i < ABKosanArray1.length; i++) {
+				if (ABKosanArray1[i] % 2 == 0) {
+					even = i;//偶数を見つける
+					break;
+				}
 
+			}
+			for (int i = odd; i < ABKosanArray2.length; i++) {
+				if (ABKosanArray2[i] % 2 != 0) {//奇数を見つける
+					int temp = ABKosanArray1[even];//偶数をtempに保管
+					ABKosanArray1[even] = ABKosanArray2[i];//偶数があったところに6から10の中にあった奇数を上書き
+					ABKosanArray2[i] = temp;//よけてあった偶数を奇数を移した後の箱に上書き
+					odd = i;
+					change++;
+					break;
+				}
+			}
+		} while (change < 2);
 
 		System.out.println("Yさん：");
 		System.out.println("はい、入れ替えました。");
@@ -114,6 +190,5 @@ public class WarehouseManager {
 			}
 		}
 		System.out.println("\nです。");
-
 	}
 }

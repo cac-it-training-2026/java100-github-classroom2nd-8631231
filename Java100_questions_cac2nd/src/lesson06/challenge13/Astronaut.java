@@ -43,38 +43,64 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
 //ここにSpaceshipクラスを記述する
+class Spaceship {
 
+	private int fuel;
+
+	/**
+	 * @return fuel
+	 */
+	public int getFuel() {
+		return fuel;
+	}
+
+	/**
+	 * @param fuel セットする fuel
+	 */
+	public void setFuel(int fuel) {
+		this.fuel = fuel;
+	}
+
+	public boolean checkFuel(double fuelNum) {
+		boolean isCheck = false;//初期化
+		double fuel = Math.floor(fuelNum);
+		// Math.floor(fuelNum);=指定された数値以下の最大の整数を返す JavaScript の静的メソッド
+		if (fuel >= 12) {
+			isCheck = true;
+		}
+		return isCheck;
+	}
+
+}
 
 public class Astronaut {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 
-        System.out.println("宇宙飛行士：");
-        System.out.println("そろそ地球に帰りたくなってきたな～。");
-        System.out.println("燃料を調べてみるか。\n");
+		System.out.println("宇宙飛行士：");
+		System.out.println("そろそ地球に帰りたくなってきたな～。");
+		System.out.println("燃料を調べてみるか。\n");
 
-        System.out.print("燃料を入力してください＞");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String fuelStr = br.readLine();
-        double fuelNum = Double.parseDouble(fuelStr);
+		System.out.print("燃料を入力してください＞");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String fuelStr = br.readLine();
+		double fuelNum = Double.parseDouble(fuelStr);
 
+		//ここに適切な処理を記述する
+		Spaceship spaceship = new Spaceship();
 
-        //ここに適切な処理を記述する
+		boolean isCheck = false;
 
+		//ここに適切な処理を記述する
 
-        boolean isCheck = false;
-
-
-        //ここに適切な処理を記述する
-
-
-        System.out.println("\n宇宙飛行士：");
-        if(isCheck){
-            System.out.println("よし！足りてる足りてる。");
-        } else {
-            System.out.println("えっ！足りてないよ。どうしよう。。。");
-        }
-    }
+		isCheck = spaceship.checkFuel(fuelNum);
+		//checkFuel(fuelNum);の結果をinCheckに入れている
+		System.out.println("\n宇宙飛行士：");
+		if (isCheck) {
+			System.out.println("よし！足りてる足りてる。");
+		} else {
+			System.out.println("えっ！足りてないよ。どうしよう。。。");
+		}
+	}
 }

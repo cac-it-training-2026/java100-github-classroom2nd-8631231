@@ -91,16 +91,20 @@ public class WarehouseManager {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		System.out.print("要素数を入れてください＞");
-
+		String youso = br.readLine();
+		int yousosuu = Integer.parseInt(youso);
 
 		//ここに入力処理を記述する
 
-
 		//ここに配列宣言を記述する
-
+		String[] data = new String[yousosuu];
 
 		//ここに値の入力+代入処理を記述する（for文）
-
+		for (int i = 0; i < yousosuu; i++) {
+			System.out.println("代入する値を入れてください");
+			String atai = br.readLine();
+			data[i] = atai;
+		}
 
 		System.out.println("\nYさん：");
 		System.out.println("...出来ました。\n");
@@ -110,9 +114,10 @@ public class WarehouseManager {
 
 		System.out.println("Yさん：");
 
-
 		//ここに配列の値の出力処理を記述する（for文）
-
+		for (int i = 0; i < yousosuu; i++) {
+			System.out.println(data[i]);
+		}
 
 		System.out.println("です。\n");
 

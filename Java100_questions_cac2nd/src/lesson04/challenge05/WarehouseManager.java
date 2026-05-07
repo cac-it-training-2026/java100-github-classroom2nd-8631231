@@ -28,20 +28,16 @@
 
 package lesson04.challenge05;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class WarehouseManager {
 
 	public static void main(String[] args) {
 
+		Integer[] list = { 1, 2, 3, 4, 5 };
 
-		//ここに配列の宣言を記述する
-
-
-		int intputNum = 0;
-		boolean loopFlag = false;
-
-
-		//ここに重複チェックおよび値の代入処理を記述する
-
+		Collections.shuffle(Arrays.asList(list));
 
 		System.out.println("E主任：");
 		System.out.println("AB興産の荷物の検査結果を教えてください。\n");
@@ -49,9 +45,17 @@ public class WarehouseManager {
 		System.out.println("Yさん：");
 		System.out.println("はい、");
 
+		//boolean hitFlag = false;
 
+		for (int i = 0; i <= 4; i++) {
+			if (list[i] == 5) {
+				boolean hitFlag = true;
+
+				System.out.println((i + 1) + "袋目");
+			}
+
+		}
 		//ここに要素の確認および何袋目かの出力処理を記述する
-
 
 		System.out.println("に入っていました。");
 
